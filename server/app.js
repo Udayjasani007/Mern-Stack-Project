@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require("mongoose");   
 
-dotenv.config({path:'./config.env'})
+dotenv.config({path:'./config.env'});
 
 //middleware
  
@@ -13,13 +13,10 @@ mongoose.connect(DB).then(() => {
     console.log('connection successful');
 }).catch((err) => console.log('no collection'));
 
-
-
 const middleware = (req, res, next) => {
     console.log("hello my middleare");
     next();
 }
-
 
 app.get('/', (req, res)=> {
     res.send('hello world form the server');     
